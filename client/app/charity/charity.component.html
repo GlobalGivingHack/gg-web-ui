@@ -2,22 +2,42 @@
 
 <app-toast [message]="toast.message"></app-toast>
 
-<div class="card" *ngIf="!isLoading">
-  <h4 class="card-header">Messages for <b>{{donorEvents[0].charity_id}}</b></h4>
-  <div class="card-block">
-    <table class="table table-bordered table-striped">
-      <tbody *ngIf="donorEvents.length === 0">
-        <tr>
-          <td colspan="4">There are no donor events in the DB.</td>
-        </tr>  
-      </tbody>
-      <tbody>
-        <tr *ngFor="let donorEvent of donorEvents; let i = index"
-        [@flyInOut]="'in'">
-          <td>{{donorEvent.message}}</td>
-          <td><img [src]="donorEvent.media_url"></td>
-        </tr>  
-      </tbody>
-    </table>
-  </div>
+
+<div class="paginate_container" *ngIf="!isLoading">
+
+  <div class="paginate_content" 
+    *ngFor=" let donorEvent of donorEvents; let i=index " [@flyInOut]=" 'in' ">
+
+
+    <div class="progressReportContainer progressReportStamp7">
+      <div class="progressReport">
+        <div class="stamp">
+          <div class="timestamp">
+            <a href="https://www.globalgiving.org/projects/teach-life-skills-to-children-without-parents/reports/?subid=98482" class="link_subtle col_defaultText">{{donorEvent.timestamp * 1000 | date}}</a>
+          </div>
+        </div>
+
+        <div class="progressReportHeader">
+          <h4>
+            <a href="https://www.globalgiving.org/projects/teach-life-skills-to-children-without-parents/reports/?subid=98482" class="col_defaultText">{{donorEvent.message}}</a>
+          </h4>
+          <div>
+            <img [src]="donorEvent.media_url">
+          </div>
+          <div class="byline">
+            <a href="https://www.globalgiving.org/projects/teach-life-skills-to-children-without-parents/reports/?subid=98482" class="col_defaultText">from {{donorEvent.user_id}} - ({{donorEvent.timestamp * 1000 | date: 'medium'}})</a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="readFullStory">
+        &nbsp;
+        <div class="layout_alignRight">
+          <a href="https://www.globalgiving.org/projects/teach-life-skills-to-children-without-parents/reports/?subid=98482">Permalink</a>&nbsp;&nbsp;&nbsp;
+          <a href="https://www.globalgiving.org/projects/teach-life-skills-to-children-without-parents/reports/?subid=98482#comments">Comments (0)</a>
+        </div>
+
+      </div>
+    </div>
 </div>
