@@ -3,14 +3,13 @@ import { ChartsModule } from 'ng2-charts';
 
 import { RoutingModule } from './routing.module';
 import { SharedModule } from './shared/shared.module';
-import { CatService } from './services/cat.service';
+import { CharityService } from './services/charity.service';
 import { UserService } from './services/user.service';
 import { AuthService } from './services/auth.service';
 import { AuthGuardLogin } from './services/auth-guard-login.service';
 import { AuthGuardAdmin } from './services/auth-guard-admin.service';
 import { AppComponent } from './app.component';
-import { CatsComponent } from './cats/cats.component';
-import { ChartsComponent } from './charts/charts.component';
+import { CharityComponent } from './charity/charity.component';
 import { AboutComponent } from './about/about.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
@@ -25,8 +24,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
-    CatsComponent,
-    ChartsComponent,
+    CharityComponent,
     AboutComponent,
     RegisterComponent,
     LoginComponent,
@@ -46,7 +44,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AuthService,
     AuthGuardLogin,
     AuthGuardAdmin,
-    CatService,
+    CharityService,
     UserService
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

@@ -7,16 +7,16 @@ import { Component, OnInit, trigger,
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { Http } from '@angular/http';
 
-import { CatService } from '../services/cat.service';
+import { CharityService } from '../services/charity.service';
 import { ToastComponent } from '../shared/toast/toast.component';
 
 import 'rxjs/Rx';
 import {Observable} from 'rxjs/Rx';
 
 @Component({
-  selector: 'app-cats',
-  templateUrl: './cats.component.html',
-  styleUrls: ['./cats.component.scss'],
+  selector: 'app-charity',
+  templateUrl: './charity.component.html',
+  styleUrls: ['./charity.component.scss'],
   animations: [
     trigger('flyInOut', [
       state('in', style({transform: 'translateX(0)'})),
@@ -37,11 +37,10 @@ import {Observable} from 'rxjs/Rx';
     ])
   ]
 })
-export class CatsComponent implements OnInit {
+export class CharityComponent implements OnInit {
 
   
 
-  cat = {};
   donorEvents = [];
   isLoading = true;
   isEditing = false;
@@ -51,7 +50,7 @@ export class CatsComponent implements OnInit {
   age = new FormControl('', Validators.required);
   weight = new FormControl('', Validators.required);
 
-  constructor(private catService: CatService,
+  constructor(private charityService: CharityService,
               private formBuilder: FormBuilder,
               public toast: ToastComponent,
               private http: Http) { }
